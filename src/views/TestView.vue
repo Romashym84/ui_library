@@ -2,9 +2,25 @@
 import { UI_SIZE } from '@/components/ui/ui-types'
 import UiDropDown from '@/components/ui/UiDropDown.vue'
 import UiDropDownIcon from '@/components/ui/UiDropDownIcon.vue'
+import UiButton from '@/components/ui/UiButton.vue'
 import { ref } from 'vue'
 
+defineProps({
+  size: {
+    type: String,
+    default: UI_SIZE.DEFAULT,
+    validator(value) {
+      return Object.values(UI_SIZE).includes(value)
+    },
+  },
+})
+
 const selected = ref(null)
+const isLoading = ref(true)
+
+setTimeout(() => {
+  isLoading.value = false
+}, 2000)
 
 const list = [
   {
@@ -33,20 +49,36 @@ const list = [
     icon: '😉',
   },
 ]
-
 </script>
 
 <template>
-  <UiDropDownIcon
-    :list="list"
-    v-model="selected"
-    placeholder="Введіть ім'я!"
-    :size="UI_SIZE.DEFAULT"
-  >
+  <UiDropDownIcon :list="list" v-model="selected" placeholder="Введіть ім'я!" :size="UI_SIZE.LARGE">
   </UiDropDownIcon>
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <UiDropDown :list="list" v-model="selected" placeholder="Введіть ім'я!" :size="UI_SIZE.DEFAULT">
   </UiDropDown>
+
+  <div class="buttons">
+    <UiButton label="Primary" type="primary" :size="UI_SIZE.SMALL" :loading="isLoading"
+      >Test</UiButton
+    >
+    <UiButton
+      round
+      label="Success"
+      type="success"
+      :size="UI_SIZE.DEFAULT"
+      :loading="isLoading"
+    ></UiButton>
+    <UiButton circle label="Danger" type="danger" :size="UI_SIZE.DEFAULT"></UiButton>
+    <UiButton
+      round
+      label="Disabled"
+      type="info"
+      :size="UI_SIZE.LARGE"
+      :loading="isLoading"
+    ></UiButton>
+    <UiButton round label="Warning" type="warning" :size="UI_SIZE.DEFAULT"></UiButton>
+    <UiButton disabled :loading="isLoading">Test Button</UiButton>
+  </div>
 </template>
 
 <!-- <template>
@@ -57,4 +89,10 @@ const list = [
   </UiDropDownIcon>
 </template> -->
 
-<style scoped></style>
+<style scoped>
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+</style>
