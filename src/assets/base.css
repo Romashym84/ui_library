@@ -84,3 +84,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --main-bg-color: brown;
+  --ui-size-default: 50px;
+  --ui-size-small: 30px;
+  --ui-size-large: 70px;
+}
