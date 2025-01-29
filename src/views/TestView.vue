@@ -1,9 +1,10 @@
 <script setup>
-import { UI_SIZE } from '@/components/ui/ui-types'
+import { UI_RADIOBUTTON_TYPE, UI_SIZE } from '@/components/ui/ui-types'
 import UiDropDown from '@/components/ui/UiDropDown.vue'
 import UiDropDownIcon from '@/components/ui/UiDropDownIcon.vue'
 import UiButton from '@/components/ui/UiButton.vue'
 import { ref } from 'vue'
+import UiRadioButton from '@/components/UiRadioButton.vue'
 
 defineProps({
   size: {
@@ -13,10 +14,18 @@ defineProps({
       return Object.values(UI_SIZE).includes(value)
     },
   },
+  type: {
+    type: String,
+    default: UI_RADIOBUTTON_TYPE.DEFAULT,
+    validator(value) {
+      return Object.values(UI_RADIOBUTTON_TYPE).includes(value)
+    },
+  },
 })
 
 const selected = ref(null)
 const isLoading = ref(true)
+const selectedOption = ref('A')
 
 setTimeout(() => {
   isLoading.value = false
@@ -78,6 +87,92 @@ const list = [
     ></UiButton>
     <UiButton round label="Warning" type="warning" :size="UI_SIZE.DEFAULT"></UiButton>
     <UiButton disabled :loading="isLoading">Test Button</UiButton>
+  </div>
+  <UiRadioButton
+    label="Option A"
+    value="A"
+    v-model="selectedOption"
+    :size="UI_SIZE.SMALL"
+    :type="UI_RADIOBUTTON_TYPE.DEFAULT"
+  />
+  <UiRadioButton
+    label="Option B"
+    value="B"
+    v-model="selectedOption"
+    :size="UI_SIZE.DEFAULT"
+    :type="UI_RADIOBUTTON_TYPE.DEFAULT"
+  />
+  <UiRadioButton
+    label="Button C"
+    value="C"
+    v-model="selectedOption"
+    :size="UI_SIZE.SMALL"
+    :type="UI_RADIOBUTTON_TYPE.BUTTON"
+  />
+  <UiRadioButton
+    label="Button D"
+    value="D"
+    v-model="selectedOption"
+    :size="UI_SIZE.DEFAULT"
+    :type="UI_RADIOBUTTON_TYPE.BUTTON"
+  />
+  <UiRadioButton
+    label="Button E"
+    value="E"
+    v-model="selectedOption"
+    :size="UI_SIZE.LARGE"
+    :type="UI_RADIOBUTTON_TYPE.BUTTON"
+  />
+  <UiRadioButton
+    disabled
+    label="Disabled"
+    value="F"
+    v-model="selectedOption"
+    :size="UI_SIZE.DEFAULT"
+    :type="UI_RADIOBUTTON_TYPE.DEFAULT"
+  />
+  <UiRadioButton
+    disabled
+    label="Button G"
+    value="G"
+    v-model="selectedOption"
+    :size="UI_SIZE.DEFAULT"
+    :type="UI_RADIOBUTTON_TYPE.BUTTON"
+  />
+
+  <div>
+    <UiRadioButton
+      group-mode
+      label="Button A"
+      value="A"
+      v-model="selectedOption"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_RADIOBUTTON_TYPE.BUTTON"
+    />
+    <UiRadioButton
+      group-mode
+      label="Button B"
+      value="B"
+      v-model="selectedOption"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_RADIOBUTTON_TYPE.BUTTON"
+    />
+    <UiRadioButton
+      group-mode
+      label="Button C"
+      value="C"
+      v-model="selectedOption"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_RADIOBUTTON_TYPE.BUTTON"
+    />
+    <UiRadioButton
+      group-mode
+      label="Button D"
+      value="D"
+      v-model="selectedOption"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_RADIOBUTTON_TYPE.BUTTON"
+    />
   </div>
 </template>
 

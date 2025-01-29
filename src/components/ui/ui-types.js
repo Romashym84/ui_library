@@ -11,6 +11,10 @@ export const UI_BUTTON_TYPE = {
   INFO: 'info',
   DEFAULT: 'default',
 }
+export const UI_RADIOBUTTON_TYPE = {
+  DEFAULT: 'default',
+  BUTTON: 'button',
+}
 export const KEY_CODE = {
   ESCAPE: 'Escape',
   SPACE: 'Space',
