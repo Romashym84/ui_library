@@ -1,6 +1,6 @@
 <script setup>
 import { UI_SIZE, UI_BUTTON_TYPE } from '@/components/ui/ui-types'
-import UiSpinner from '../UiSpinner.vue'
+import UiSpinner from './UiSpinner.vue'
 
 const props = defineProps({
   label: {

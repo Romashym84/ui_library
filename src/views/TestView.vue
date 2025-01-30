@@ -4,7 +4,8 @@ import UiDropDown from '@/components/ui/UiDropDown.vue'
 import UiDropDownIcon from '@/components/ui/UiDropDownIcon.vue'
 import UiButton from '@/components/ui/UiButton.vue'
 import { ref } from 'vue'
-import UiRadioButton from '@/components/UiRadioButton.vue'
+import UiRadioButton from '@/components/ui/UiRadioButton.vue'
+import UiRadioButtonGroup from '@/components/ui/UiRadioButtonGroup.vue'
 
 defineProps({
   size: {
@@ -26,6 +27,7 @@ defineProps({
 const selected = ref(null)
 const isLoading = ref(true)
 const selectedOption = ref('A')
+const selectedValue = ref('A')
 
 setTimeout(() => {
   isLoading.value = false
@@ -56,6 +58,25 @@ const list = [
     value: 5,
     label: 'Igor',
     icon: '😉',
+  },
+]
+const listRadioGroup = [
+  {
+    value: 'A',
+    label: 'Button A',
+  },
+  {
+    value: 'B',
+    label: 'Button B',
+  },
+  {
+    value: 'C',
+    label: 'Button C',
+  },
+  {
+    value: 'D',
+    label: 'Button D',
+    disabled: true,
   },
 ]
 </script>
@@ -173,6 +194,20 @@ const list = [
       :size="UI_SIZE.DEFAULT"
       :type="UI_RADIOBUTTON_TYPE.BUTTON"
     />
+  </div>
+  <div>
+    <UiRadioButtonGroup
+      v-model="selectedValue"
+      :options="listRadioGroup"
+      :size="UI_SIZE.DEFAULT"
+    ></UiRadioButtonGroup>
+    <UiRadioButtonGroup
+      v-model="selectedValue"
+      :options="listRadioGroup"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_RADIOBUTTON_TYPE.DEFAULT"
+      gap="40px"
+    ></UiRadioButtonGroup>
   </div>
 </template>
 

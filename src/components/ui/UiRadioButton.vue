@@ -146,9 +146,10 @@ const model = defineModel()
 .ui-radio-button--type-button input:checked ~ .ui-radio-button__label {
   background: #007bff;
   color: white;
+  transition: all 0.5s ease;
 }
 
-.ui-radio-button--type-button label:hover {
+.ui-radio-button--type-button .ui-radio-button__label:hover {
   color: #007bff;
 }
 
