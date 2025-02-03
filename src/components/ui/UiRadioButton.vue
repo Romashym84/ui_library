@@ -48,9 +48,8 @@ const model = defineModel()
       v-bind="$attrs"
       type="radio"
       :value="value"
-      :checked="model === value"
+      v-model="model"
       :disabled="disabled"
-      @input="$emit('update:modelValue', value)"
     />
     <span class="ui-radio-button__update-input"></span>
     <span class="ui-radio-button__label">
@@ -146,7 +145,7 @@ const model = defineModel()
 .ui-radio-button--type-button input:checked ~ .ui-radio-button__label {
   background: #007bff;
   color: white;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .ui-radio-button--type-button .ui-radio-button__label:hover {
