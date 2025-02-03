@@ -15,6 +15,14 @@ export const UI_RADIOBUTTON_TYPE = {
   DEFAULT: 'default',
   BUTTON: 'button',
 }
+export const UI_TOGGLE_BUTTON_TYPE = {
+  DEFAULT: 'default',
+  BUTTON: 'button',
+}
+export const UI_TOGGLE_BUTTON_MODE = {
+  CHECKBOX: 'checkbox',
+  RADIO: 'radio',
+}
 export const KEY_CODE = {
   ESCAPE: 'Escape',
   SPACE: 'Space',
