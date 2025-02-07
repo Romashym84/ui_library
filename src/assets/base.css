@@ -85,7 +85,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 :root {
+  --color-red: red;
   --main-bg-color: brown;
+  --button-bg-color: var(var(--main-bg-color));
   --ui-size-default: 50px;
   --ui-size-small: 30px;
   --ui-size-large: 70px;
