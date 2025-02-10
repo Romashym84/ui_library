@@ -40,7 +40,7 @@ const props = defineProps({
     default: false,
   },
   darkStyle: {
-    type: String,
+    type: Boolean,
   },
 })
 
@@ -121,15 +121,157 @@ const model = defineModel()
 </template>
 <style scoped lang="scss">
 .ui-switch-button {
-  outline: 2px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: 16px;
+  line-height: 20px;
+  height: 100%;
+  vertical-align: middle;
 
-  // &--size-small {
-  // }
-  // &__item {
-  // }
+  &--size {
+    &-small {
+      font-size: calc(var(--ui-size-small) / 2);
+      --ui-size: var(--ui-size-small);
+    }
+    &-default {
+      font-size: calc(var(--ui-size-default) / 2);
+      --ui-size: var(--ui-size-default);
+    }
+    &-large {
+      font-size: calc(var(--ui-size-large) / 2);
+      --ui-size: var(--ui-size-large);
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &__container {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    min-width: calc(var(--ui-size) + var(--ui-size));
+    height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: var(--color-red);
+    outline: none;
+    border-radius: var(--ui-size);
+    background: var(--color-red);
+    transition:
+      border-color 0.3s,
+      background-color 0.3s;
+
+    &-dark {
+      background: var(--color-white-gray);
+      border: var(--color-white-gray);
+    }
+
+    &--active {
+      background: var(--color-green-light);
+      border-color: var(--color-green-light);
+    }
+
+    &--active-dark {
+      background: var(--color-black);
+      border-color: var(--color-black);
+    }
+
+    &--active &-action {
+      left: calc(100% - calc(var(--ui-size) - 2px));
+    }
+
+    &--active .ui-switch-button__text {
+      padding-left: calc(var(--ui-size) * 0.2);
+      padding-right: calc(var(--ui-size) - 32px);
+      color: var(--color-white);
+    }
+  }
+
+  &__container-action {
+    position: absolute;
+    left: 2px;
+    width: calc(var(--ui-size) - 4px);
+    height: calc(var(--ui-size) - 4px);
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: left 0.3s;
+    top: 2px;
+  }
+
+  &__text {
+    &.noactive {
+      color: var(--color-red);
+    }
+    &-dark.noactive-dark {
+      color: var(--color-white-gray);
+    }
+  }
+
+  &__container {
+    .ui-switch-button__text {
+      &.ui-switch-button__text--noactive {
+        padding-right: calc(var(--ui-size) * 0.2);
+        padding-left: calc(var(--ui-size));
+        width: 100%;
+        text-align: right;
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &__container-dark {
+    .ui-switch-button__text-dark {
+      &.ui-switch-button__text--noactive-dark {
+        color: var(--color-black);
+      }
+    }
+  }
+
+  &--prepend {
+    &-active-text {
+      color: var(--color-gray);
+    }
+
+    &-noactive-text {
+      color: var(--color-blue);
+    }
+
+    &-active-text-dark {
+      color: var(--color-white-gray);
+    }
+
+    &-noactive-text-dark {
+      color: var(--color-black);
+    }
+  }
+
+  &--noactive-text {
+    color: var(--color-gray);
+  }
+
+  &__container {
+    & {
+      &--active-text {
+        color: var(--color-blue);
+      }
+      &--active-text-dark {
+        color: var(--color-black);
+      }
+      &--noactive-text-dark {
+        color: var(--color-white-gray);
+      }
+    }
+  }
 }
 </style>
-<style scoped>
+<!-- <style scoped>
 .ui-switch-button {
   display: inline-flex;
   align-items: center;
@@ -138,7 +280,6 @@ const model = defineModel()
   line-height: 20px;
   height: 100%;
   vertical-align: middle;
-  --main-bg-color: blue;
 }
 
 .ui-switch-button--size-small {
@@ -184,13 +325,13 @@ const model = defineModel()
 }
 
 .ui-switch-button__container--active {
-  background: var(--main-bg-color);
-  border-color: #13ce66;
+  background: var(--color-green-light);
+  border-color: var(--color-green-light);
 }
 
 .ui-switch-button__container--active-dark {
-  background: black;
-  border-color: black;
+  background: var(--color-black);
+  border-color: var(--color-black);
 }
 
 .ui-switch-button__container-action {
@@ -198,7 +339,7 @@ const model = defineModel()
   left: 2px;
   width: calc(var(--ui-size) - 4px);
   height: calc(var(--ui-size) - 4px);
-  background-color: white;
+  background-color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,15 +355,15 @@ const model = defineModel()
 .ui-switch-button__container--active .ui-switch-button__text {
   padding-left: calc(var(--ui-size) * 0.2);
   padding-right: calc(var(--ui-size) - 32px);
-  color: white;
+  color: var(--color-white);
 }
 
 .ui-switch-button__text.noactive {
-  color: red;
+  color: var(--color-red);
 }
 
 .ui-switch-button__text-dark.noactive-dark {
-  color: rgb(220, 219, 219);
+  color: var(--color-white-gray);
 }
 
 .ui-switch-button__container .ui-switch-button__text.ui-switch-button__text--noactive {
@@ -230,42 +371,43 @@ const model = defineModel()
   padding-left: calc(var(--ui-size));
   width: 100%;
   text-align: right;
-  color: white;
+  color: var(--color-white);
 }
 
-.ui-switch-button__container-dark .ui-switch-button__text-dark.ui-switch-button__text--noactive-dark {
-  color: black;
+.ui-switch-button__container-dark
+  .ui-switch-button__text-dark.ui-switch-button__text--noactive-dark {
+  color: var(--color-black);
 }
 
 .ui-switch-button--prepend-active-text {
-  color: gray;
+  color: var(--color-gray);
 }
 
 .ui-switch-button--prepend-noactive-text {
-  color: blue;
+  color: var(--color-blue);
 }
 
 .ui-switch-button--noactive-text {
-  color: gray;
+  color: var(--color-gray);
 }
 
 .ui-switch-button__container--active-text {
-  color: blue;
+  color: var(--color-blue);
 }
 
 .ui-switch-button--prepend-active-text-dark {
-  color: rgb(220, 219, 219);
+  color: var(--color-white-gray);
 }
 
 .ui-switch-button--prepend-noactive-text-dark {
-  color: black;
+  color: var(--color-black);
 }
 
 .ui-switch-button__container--noactive-text-dark {
-  color: rgb(220, 219, 219);
+  color: var(--color-white-gray);
 }
 
 .ui-switch-button__container--active-text-dark {
-  color: black;
+  color: var(--color-black);
 }
-</style>
+</style> -->

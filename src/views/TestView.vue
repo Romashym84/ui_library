@@ -376,6 +376,7 @@ const listRadioGroup = [
       :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
     ></UiToggleButtonGroup>
   </div>
+  <br />
   <div class="buttons">
     <UiSwitchButton
       active-text="Y"
