@@ -24,7 +24,6 @@ const props = defineProps({
   },
   label: {
     type: String,
-    required: true,
   },
   value: {
     type: [String, Number, Boolean, Array],
@@ -41,10 +40,6 @@ const props = defineProps({
   groupMode: {
     type: Boolean,
     default: false,
-  },
-  gap: {
-    type: String,
-    default: '0',
   },
 })
 
@@ -70,11 +65,12 @@ const model = defineModel()
       :false-value="props.falseValue"
       :disabled="disabled"
     />
-
-    <span class="ui-toggle-button__update-input"></span>
-    <span class="ui-toggle-button__label">
-      <slot>{{ label }}</slot>
-    </span>
+    <slot name="input">
+      <span class="ui-toggle-button__update-input"></span>
+      <span class="ui-toggle-button__label">
+        <slot>{{ label }}</slot>
+      </span>
+    </slot>
   </label>
 </template>
 

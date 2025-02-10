@@ -1,5 +1,10 @@
 <script setup>
-import { UI_RADIOBUTTON_TYPE, UI_SIZE, UI_TOGGLE_BUTTON_MODE, UI_TOGGLE_BUTTON_TYPE } from '@/components/ui/ui-types'
+import {
+  UI_RADIOBUTTON_TYPE,
+  UI_SIZE,
+  UI_TOGGLE_BUTTON_MODE,
+  UI_TOGGLE_BUTTON_TYPE,
+} from '@/components/ui/ui-types'
 import UiDropDown from '@/components/ui/UiDropDown.vue'
 import UiDropDownIcon from '@/components/ui/UiDropDownIcon.vue'
 import UiButton from '@/components/ui/UiButton.vue'
@@ -9,6 +14,8 @@ import UiRadioButtonGroup from '@/components/ui/UiRadioButtonGroup.vue'
 import UiCheckBoxButton from '@/components/UiCheckBoxButton.vue'
 import UiCustomCheckbox from '@/components/UiCustomCheckbox.vue'
 import UiToggleButton from '@/components/ui/UiToggleButton.vue'
+import UiToggleButtonGroup from '@/components/ui/UiToggleButtonGroup.vue'
+import UiSwitchButton from '@/components/ui/UiSwitchButton.vue'
 
 defineProps({
   size: {
@@ -32,7 +39,12 @@ const isLoading = ref(true)
 const selectedOption = ref('A')
 const selectedValue = ref('A')
 const selectedCheckBox = ref([])
+const selectedToggleButtongroup = ref([])
 const selectedRadioBox = ref('')
+const selectedswitch1 = ref(true)
+const selectedswitch2 = ref(true)
+const selectedswitch3 = ref(true)
+
 setTimeout(() => {
   isLoading.value = false
 }, 2000)
@@ -323,37 +335,136 @@ const listRadioGroup = [
 
   <div>
     <UiToggleButton
-    label="Option 1"
-    value="1"
-    v-model="selectedCheckBox"
-    :size="UI_SIZE.DEFAULT"
-    :type="UI_TOGGLE_BUTTON_TYPE.DEFAULT"
-    :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
-  ></UiToggleButton>
-  <UiToggleButton
-    label="Option 2"
-    value="2"
-    v-model="selectedCheckBox"
-    :size="UI_SIZE.DEFAULT"
-    :type="UI_TOGGLE_BUTTON_TYPE.DEFAULT"
-    :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
-  ></UiToggleButton>
-  <UiToggleButton
-    label="Option 3"
-    value="3"
-    v-model="selectedCheckBox"
-    :size="UI_SIZE.DEFAULT"
-    :type="UI_TOGGLE_BUTTON_TYPE.DEFAULT"
-    :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
-  ></UiToggleButton>
-  <UiToggleButton
-    label="Option 4"
-    value="4"
-    v-model="selectedCheckBox"
-    :size="UI_SIZE.DEFAULT"
-    :type="UI_TOGGLE_BUTTON_TYPE.DEFAULT"
-    :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
-  ></UiToggleButton>
+      label="Option 1"
+      value="1"
+      v-model="selectedCheckBox"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiToggleButton>
+    <UiToggleButton
+      label="Option 2"
+      value="2"
+      v-model="selectedCheckBox"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiToggleButton>
+    <UiToggleButton
+      label="Option 3"
+      value="3"
+      v-model="selectedCheckBox"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiToggleButton>
+    <UiToggleButton
+      label="Option 4"
+      value="4"
+      v-model="selectedCheckBox"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiToggleButton>
+  </div>
+  <div class="button-group">
+    <UiToggleButtonGroup
+      v-model="selectedToggleButtongroup"
+      :options="listRadioGroup"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_RADIOBUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiToggleButtonGroup>
+  </div>
+  <br />
+  <div class="buttons">
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="true"
+      v-model="selectedswitch1"
+      :size="UI_SIZE.SMALL"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="false"
+      v-model="selectedswitch2"
+      :size="UI_SIZE.SMALL"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+  </div>
+  <br />
+  <div class="buttons">
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="true"
+      v-model="selectedswitch1"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="false"
+      v-model="selectedswitch2"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+  </div>
+  <br />
+  <div class="buttons">
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="true"
+      v-model="selectedswitch1"
+      :size="UI_SIZE.LARGE"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="false"
+      v-model="selectedswitch2"
+      :size="UI_SIZE.LARGE"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+  </div>
+  <br />
+  <div class="buttons">
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="true"
+      :dark-style="true"
+      v-model="selectedswitch3"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
+
+    <UiSwitchButton
+      active-text="Y"
+      noactive-text="N"
+      :inline="false"
+      :dark-style="true"
+      v-model="selectedswitch3"
+      :size="UI_SIZE.DEFAULT"
+      :type="UI_TOGGLE_BUTTON_TYPE.BUTTON"
+      :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
+    ></UiSwitchButton>
   </div>
 </template>
 
@@ -370,6 +481,7 @@ const listRadioGroup = [
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-around;
 }
 
 .button-gap {
@@ -381,6 +493,7 @@ const listRadioGroup = [
 }
 
 .button-group {
+  margin-top: 20px;
   display: flex;
   gap: 0;
 }
