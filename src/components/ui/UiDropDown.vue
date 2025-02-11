@@ -176,9 +176,9 @@ const pressedClickNoContainer = (event) => {
   height: var(--ui-size-default);
   padding: 10px 15px;
   font-size: 16px;
-  color: #333;
-  background: #f9f9f9;
-  border: 1px solid #ccc;
+  color: var(--color-black);
+  background: var(--color-white);
+  border: 1px solid var(--color-white-gray);
   border-radius: 4px;
   cursor: pointer;
   display: flex;
@@ -190,7 +190,7 @@ const pressedClickNoContainer = (event) => {
   font-size: larger;
   width: -webkit-fill-available;
   border: none;
-  background: #f9f9f9;
+  background: var(--color-white);
   cursor: pointer;
 }
 
@@ -200,7 +200,7 @@ const pressedClickNoContainer = (event) => {
 
 .dropdown__icon {
   font-size: 12px;
-  color: #999;
+  color: var(--color-white-gray);
 }
 
 .dropdown__list {
@@ -208,8 +208,8 @@ const pressedClickNoContainer = (event) => {
   position: absolute;
   left: 0;
   right: 0;
-  background: white;
-  border: 1px solid #ccc;
+  background: var(--color-white);
+  border: 1px solid var(--color-white-gray);
   border-radius: 4px;
   margin: 5px 0 0;
 }
@@ -217,19 +217,19 @@ const pressedClickNoContainer = (event) => {
 .dropdown__item {
   padding: 10px 15px;
   cursor: pointer;
-  color: black;
+  color: var(--color-black);
 }
 
 .dropdown__item:hover {
-  background-color: #f0f0f0;
+  background-color: var(--color-white-light-gray);
 }
 
 .dropdown__item--selected {
-  background: #c7c7c7;
+  background: var(--color-white-gray);
   font-weight: bold;
 }
 
 .dropdown__item--hover {
-  background-color: #f0f0f0;
+  background-color:var(--color-white-light-gray);
 }
 </style>

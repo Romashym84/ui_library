@@ -32,3 +32,9 @@ export const KEY_CODE = {
   LEFT: 'ArrowLeft',
   RIGHT: 'ArrowRight',
 }
+export const UI_PROGRESS_TYPE = {
+  PRIMARY: 'primary',
+  SUCCESS: 'success',
+  WARNING: 'warning',
+  DANGER: 'danger',
+}

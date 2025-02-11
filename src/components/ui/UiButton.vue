@@ -71,34 +71,34 @@ const props = defineProps({
 }
 
 .btn--default {
-  background: #fff;
-  border: 1px solid #ddd;
-  color: #333;
+  background: var(--color-white-gray);
+  border: 1px solid var(--color-gray);
+  color: var(--color-black);
 }
 
 .btn--primary {
-  background: #409eff;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 .btn--success {
-  background: #67c23a;
-  color: #fff;
+  background: var(--color-success);
+  color: var(--color-white);
 }
 
 .btn--info {
-  background: #909399;
-  color: #fff;
+  background: var(--color-info);
+  color: var(--color-white);
 }
 
 .btn--warning {
-  background: #e6a23c;
-  color: #fff;
+  background: var(--color-warning);
+  color:var(--color-white);
 }
 
 .btn--danger {
-  background: #f56c6c;
-  color: #fff;
+  background: var(--color-danger);
+  color: var(--color-white);
 }
 
 .btn--size-small {

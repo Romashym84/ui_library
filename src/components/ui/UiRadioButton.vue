@@ -94,12 +94,12 @@ const model = defineModel()
 .ui-radio-button__update-input {
   width: 16px;
   height: 16px;
-  border: 2px solid #d8dbde;
+  border: 2px solid var(--color-white-gray);
   border-radius: 50%;
 }
 
 .ui-radio-button input:checked + .ui-radio-button__update-input {
-  border: 6px solid #4da3ff;
+  border: 6px solid var(--color-primary);
 }
 
 .ui-radio-button__label {
@@ -110,11 +110,11 @@ const model = defineModel()
 }
 
 .ui-radio-button input:checked ~ .ui-radio-button__label {
-  color: #007bff;
+  color: var(--color-primary);
 }
 
 .ui-radio-button--type-button {
-  border: 1px solid #d8dbde;
+  border: 1px solid var(--color-white-gray);
   border-radius: 4px;
 }
 
@@ -143,13 +143,13 @@ const model = defineModel()
 }
 
 .ui-radio-button--type-button input:checked ~ .ui-radio-button__label {
-  background: #007bff;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   transition: all 0.3s ease;
 }
 
 .ui-radio-button--type-button .ui-radio-button__label:hover {
-  color: #007bff;
+  color: var(--color-primary);
 }
 
 </style>
