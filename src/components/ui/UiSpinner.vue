@@ -15,7 +15,7 @@
 }
 
 .ui-spinner__loader {
-  color: #fff;
+  color:var(--color-white);
   font-size: 3px;
   width: 1em;
   height: 1em;

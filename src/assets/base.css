@@ -92,7 +92,14 @@ body {
   --color-green-light: #13ce66;
   --color-white: white;
   --color-white-gray: rgb(220, 219, 219);
+  --color-white-light-gray: #f0f0f0;
   --color-gray: gray;
+
+  --color-primary: #007bff;
+  --color-success: #4caf50;
+  --color-warning: #f4a261;
+  --color-danger: #e74c3c;
+  --color-info: #909399;
 
   --main-bg-color: brown;
   --button-bg-color: var(var(--main-bg-color));

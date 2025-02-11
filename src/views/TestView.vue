@@ -4,6 +4,7 @@ import {
   UI_SIZE,
   UI_TOGGLE_BUTTON_MODE,
   UI_TOGGLE_BUTTON_TYPE,
+  UI_PROGRESS_TYPE,
 } from '@/components/ui/ui-types'
 import UiDropDown from '@/components/ui/UiDropDown.vue'
 import UiDropDownIcon from '@/components/ui/UiDropDownIcon.vue'
@@ -16,6 +17,7 @@ import UiCustomCheckbox from '@/components/UiCustomCheckbox.vue'
 import UiToggleButton from '@/components/ui/UiToggleButton.vue'
 import UiToggleButtonGroup from '@/components/ui/UiToggleButtonGroup.vue'
 import UiSwitchButton from '@/components/ui/UiSwitchButton.vue'
+import UiProgress from '@/components/ui/UiProgress.vue'
 
 defineProps({
   size: {
@@ -44,6 +46,7 @@ const selectedRadioBox = ref('')
 const selectedswitch1 = ref(true)
 const selectedswitch2 = ref(true)
 const selectedswitch3 = ref(true)
+// const uiProgress = ref('')
 
 setTimeout(() => {
   isLoading.value = false
@@ -466,6 +469,16 @@ const listRadioGroup = [
       :mode="UI_TOGGLE_BUTTON_MODE.CHECKBOX"
     ></UiSwitchButton>
   </div>
+  <br />
+  <UiProgress :percent="50" />
+  <br />
+  <UiProgress :percent="100" :type="UI_PROGRESS_TYPE.DANGER" />
+  <br />
+  <UiProgress :percent="75" :type="UI_PROGRESS_TYPE.SUCCESS" textInside />
+  <br />
+  <UiProgress :percent="30" :type="UI_PROGRESS_TYPE.WARNING" loading />
+  <br />
+  <UiProgress :percent="90" :type="UI_PROGRESS_TYPE.PRIMARY" hiddenText />
 </template>
 
 <!-- <template>

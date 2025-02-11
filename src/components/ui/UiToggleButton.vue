@@ -110,19 +110,19 @@ const model = defineModel()
 .ui-toggle-button--mode-radio .ui-toggle-button__update-input {
   width: 16px;
   height: 16px;
-  border: 2px solid #d8dbde;
+  border: 2px solid var(--color-white-gray);
   border-radius: 50%;
 }
 
 .ui-toggle-button--mode-radio input:checked + .ui-toggle-button__update-input {
-  border: 6px solid #4da3ff;
+  border: 6px solid var(--color-primary);
 }
 
 .ui-toggle-button--mode-checkbox .ui-toggle-button__update-input {
   width: 16px;
   height: 16px;
-  border: 2px solid #007bff;
-  background-color: white;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +133,7 @@ const model = defineModel()
   content: '';
   width: 5px;
   height: 8px;
-  border: solid white;
+  border: solid var(--color-white);
   border-width: 0 1px 1px 0;
   transform: rotate(45deg);
   margin-top: -2px;
@@ -141,8 +141,8 @@ const model = defineModel()
 }
 
 .ui-toggle-button--mode-checkbox input:checked + .ui-toggle-button__update-input {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .ui-toggle-button--mode-checkbox input:checked + .ui-toggle-button__update-input::after {
@@ -157,11 +157,11 @@ const model = defineModel()
 }
 
 .ui-toggle-button input:checked ~ .ui-toggle-button__label {
-  color: #007bff;
+  color: var(--color-primary);
 }
 
 .ui-toggle-button--type-button {
-  border: 1px solid #d8dbde;
+  border: 1px solid var(--color-white-gray);
   border-radius: 4px;
 }
 
@@ -190,12 +190,12 @@ const model = defineModel()
 }
 
 .ui-toggle-button--type-button input:checked ~ .ui-toggle-button__label {
-  background: #007bff;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   transition: all 0.3s ease;
 }
 
 .ui-toggle-button--type-button .ui-toggle-button__label:hover {
-  color: #007bff;
+  color: var(--color-primary);
 }
 </style>
