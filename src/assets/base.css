@@ -86,23 +86,29 @@ body {
 }
 :root {
   --color-red: red;
+  --color-red-light:#e74c3c;
+  --color-orange:#f4a261;
   --color-blue: blue;
+  --color-blue-light: #007bff;
+  --color-blue-dark:#403e57;
   --color-black: black;
-  --color-green: green;
+  --color-green: #4caf50;
   --color-green-light: #13ce66;
+  --color-green-dark:#053a1d;
   --color-white: white;
   --color-white-gray: rgb(220, 219, 219);
   --color-white-light-gray: #f0f0f0;
   --color-gray: gray;
+  --color-gray-light:#909399;
 
-  --color-primary: #007bff;
-  --color-success: #4caf50;
-  --color-warning: #f4a261;
-  --color-danger: #e74c3c;
-  --color-info: #909399;
+  --color-primary: var(--color-blue-light);
+  --color-success: var(--color-green);
+  --color-warning: var(--color-orange);
+  --color-danger: var(--color-red-light);
+  --color-info: var(--color-gray-light);
 
   --main-bg-color: brown;
-  --button-bg-color: var(var(--main-bg-color));
+  --button-bg-color: var(--main-bg-color);
   --ui-size-default: 50px;
   --ui-size-small: 30px;
   --ui-size-large: 70px;

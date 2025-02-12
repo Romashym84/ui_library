@@ -18,6 +18,7 @@ import UiToggleButton from '@/components/ui/UiToggleButton.vue'
 import UiToggleButtonGroup from '@/components/ui/UiToggleButtonGroup.vue'
 import UiSwitchButton from '@/components/ui/UiSwitchButton.vue'
 import UiProgress from '@/components/ui/UiProgress.vue'
+import UiRate from '@/components/ui/UiRate.vue'
 
 defineProps({
   size: {
@@ -46,7 +47,7 @@ const selectedRadioBox = ref('')
 const selectedswitch1 = ref(true)
 const selectedswitch2 = ref(true)
 const selectedswitch3 = ref(true)
-// const uiProgress = ref('')
+const uiRate = ref('1')
 
 setTimeout(() => {
   isLoading.value = false
@@ -479,6 +480,12 @@ const listRadioGroup = [
   <UiProgress :percent="30" :type="UI_PROGRESS_TYPE.WARNING" loading />
   <br />
   <UiProgress :percent="90" :type="UI_PROGRESS_TYPE.PRIMARY" hiddenText />
+  <br>
+  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.SMALL"></UiRate>
+  <br>
+  <UiRate v-model="uiRate" :readonly="false" :count="10" :size="UI_SIZE.DEFAULT" style-blue></UiRate>
+  <br>
+  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.LARGE" style-red></UiRate>
 </template>
 
 <!-- <template>
