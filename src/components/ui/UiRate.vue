@@ -22,10 +22,16 @@ const props = defineProps({
     type: Number,
     default: 5,
   },
-  styleRed: {
+  activeColor: {
+    type: String,
+  },
+  inactiveColor: {
+    type: String,
+  },
+  halfMode: {
     type: Boolean,
   },
-  styleBlue: {
+  textMode: {
     type: Boolean,
   },
 })
@@ -42,17 +48,13 @@ const stars = computed(() => {
 
 const hoverValue = ref(null)
 
+const activeColor = computed(()=>props.activeColor || 'var(--color-orange)')
+const inactiveColor = computed(()=>props.inactiveColor || 'var(--color-blue-dark)')
+
 const getColor = (index) => {
   const curentValue = hoverValue.value ?? model.value
-  if (props.styleRed) {
-    return index <= curentValue ? 'var(--color-red)' : 'var(--color-green)'
-  }
 
-  if (props.styleBlue) {
-    return index <= curentValue ? 'var(--color-blue)' : 'var(--color-black)'
-  }
-
-  return index <= curentValue ? 'var(--color-orange)' : 'var(--color-blue-dark)'
+  return index <= curentValue ? activeColor.value : inactiveColor.value
 }
 
 const updateRate = (index) => {
@@ -74,19 +76,29 @@ const clearHover = () => {
 }
 </script>
 <template>
-  <div class="ui-rate">
-    <span
-      v-for="star in stars"
-      :key="star"
-      class="ui-rate__star"
-      :class="{ [`ui-rate__star--size-${size}`]: true }"
-      :style="{ color: getColor(star) }"
-      @click="updateRate(star)"
-      @mouseover="setHover(star)"
-      @mouseout="clearHover"
-    >
-      ★
+  <div class="ui-rate" :class="{ [`ui-rate--size-${size}`]: true }">
+    <span class="ui-rate__star" v-for="star in stars" :key="star">
+      <div
+        v-if="halfMode"
+        class="ui-rate__star-left"
+        :style="{ color: getColor(star - 0.5) }"
+        @click="updateRate(star - 0.5)"
+        @mouseover="setHover(star - 0.5)"
+        @mouseout="clearHover"
+      >
+        ★
+      </div>
+      <div
+        class="ui-rate__star-right"
+        :style="{ color: getColor(star) }"
+        @click="updateRate(star)"
+        @mouseover="setHover(star)"
+        @mouseout="clearHover"
+      >
+        ★
+      </div>
     </span>
+    <div v-if="textMode" class="ui-rate__star-number">{{ model }}</div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -94,29 +106,45 @@ const clearHover = () => {
   display: flex;
   gap: 4px;
   cursor: pointer;
+  height: 1em;
+
+  &--size-small {
+    font-size: var(--ui-size-small);
+  }
+
+  &--size-default {
+    font-size: var(--ui-size-default);
+  }
+
+  &--size-large {
+    font-size: var(--ui-size-large);
+  }
 
   &__star {
-    font-size: 50px;
+    display: inline-block;
+    position: relative;
     transition:
       color 0.3s,
       transform 0.2s;
-    line-height: 100%;
-
-    &--size-small {
-      font-size: var(--ui-size-small);
-    }
-
-    &--size-default {
-      font-size: var(--ui-size-default);
-    }
-    
-    &--size-large {
-      font-size: var(--ui-size-large);
-    }
+    line-height: 0.9em;
 
     &:hover {
       transform: scale(1.5);
     }
+  }
+
+  &__star-left {
+    position: absolute;
+    width: 50%;
+    overflow: hidden;
+  }
+
+  &__star-number {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    font-size: 0.5em;
+    line-height: 1em;
   }
 }
 </style>

@@ -480,12 +480,12 @@ const listRadioGroup = [
   <UiProgress :percent="30" :type="UI_PROGRESS_TYPE.WARNING" loading />
   <br />
   <UiProgress :percent="90" :type="UI_PROGRESS_TYPE.PRIMARY" hiddenText />
-  <br>
+  <br />
   <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.SMALL"></UiRate>
-  <br>
-  <UiRate v-model="uiRate" :readonly="false" :count="10" :size="UI_SIZE.DEFAULT" style-blue></UiRate>
-  <br>
-  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.LARGE" style-red></UiRate>
+  <br />
+  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.DEFAULT" active-color="red" half-mode></UiRate>
+  <br />
+  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.LARGE" style-red text-mode></UiRate>
 </template>
 
 <!-- <template>
