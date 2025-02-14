@@ -16,7 +16,7 @@ const props = defineProps({
 </script>
 <template>
   <div
-    class="ui-sceleton-item"
+    class="ui-skeleton-item"
     :style="{
       width: props.width,
       height: props.height,
@@ -25,7 +25,7 @@ const props = defineProps({
   ></div>
 </template>
 <style lang="scss">
-.ui-sceleton-item {
+.ui-skeleton-item {
   background: linear-gradient(90deg, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%);
   background-size: 200% 100%;
   animation: shimer 3s infinite linear(0.86 -10.35%, -0.14 89.18%);

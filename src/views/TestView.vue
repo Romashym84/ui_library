@@ -19,7 +19,7 @@ import UiToggleButtonGroup from '@/components/ui/UiToggleButtonGroup.vue'
 import UiSwitchButton from '@/components/ui/UiSwitchButton.vue'
 import UiProgress from '@/components/ui/UiProgress.vue'
 import UiRate from '@/components/ui/UiRate.vue'
-import UiSceletonItem from '@/components/ui/UiSceletonItem.vue'
+import UiSkeletonItem from '@/components/ui/UiSkeletonItem.vue'
 
 defineProps({
   size: {
@@ -501,37 +501,37 @@ const listRadioGroup = [
     style-red
     text-mode
   ></UiRate>
-  <div class="sceleton">
-    <div class="sceleton-info">
-      <UiSceletonItem width="70px" height="20px" border-radius="2px"></UiSceletonItem>
+  <div class="skeleton">
+    <div class="skeleton-info">
+      <UiSkeletonItem width="70px" height="20px" border-radius="2px"></UiSkeletonItem>
     </div>
-    <div class="sceleton-heder">
-      <UiSceletonItem width="500px" height="70px" ></UiSceletonItem>
-      <UiSceletonItem width="180px" height="35px" ></UiSceletonItem>
+    <div class="skeleton-heder">
+      <UiSkeletonItem width="500px" height="70px"></UiSkeletonItem>
+      <UiSkeletonItem width="180px" height="35px"></UiSkeletonItem>
     </div>
-    <div class="sceleton-heder-image">
-      <UiSceletonItem width="550px" height="350px" border-radius="2px"></UiSceletonItem>
-      <div class="sceleton-heder-image-info">
-        <div class="sceleton-heder-image-info-author">
-          <UiSceletonItem width="40px" height="40px" border-radius="50%"></UiSceletonItem>
-          <UiSceletonItem width="150px" height="40px" border-radius="2px"></UiSceletonItem>
+    <div class="skeleton-heder-image">
+      <UiSkeletonItem width="550px" height="350px" border-radius="2px"></UiSkeletonItem>
+      <div class="skeleton-heder-image-info">
+        <div class="skeleton-heder-image-info-author">
+          <UiSkeletonItem width="40px" height="40px" border-radius="50%"></UiSkeletonItem>
+          <UiSkeletonItem width="150px" height="40px" border-radius="2px"></UiSkeletonItem>
         </div>
-        <div class="sceleton-heder-image-info-like">
-          <UiSceletonItem width="40px" height="20px" border-radius="8px"></UiSceletonItem>
+        <div class="skeleton-heder-image-info-like">
+          <UiSkeletonItem width="40px" height="20px" border-radius="8px"></UiSkeletonItem>
         </div>
       </div>
     </div>
-    <div class="sceleton-body">
-      <UiSceletonItem width="500px" height="180px" border-radius="2px"></UiSceletonItem>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="180px" border-radius="2px"></UiSkeletonItem>
     </div>
-    <div class="sceleton-body">
-      <UiSceletonItem width="500px" height="240px" border-radius="2px"></UiSceletonItem>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="240px" border-radius="2px"></UiSkeletonItem>
     </div>
-    <div class="sceleton-body">
-      <UiSceletonItem width="500px" height="220px" border-radius="2px"></UiSceletonItem>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="220px" border-radius="2px"></UiSkeletonItem>
     </div>
-    <div class="sceleton-body">
-      <UiSceletonItem width="500px" height="280px" border-radius="2px"></UiSceletonItem>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="280px" border-radius="2px"></UiSkeletonItem>
     </div>
   </div>
 </template>
@@ -566,7 +566,7 @@ const listRadioGroup = [
   gap: 0;
 }
 
-.sceleton {
+.skeleton {
   display: flex;
   flex-direction: column;
   border: 1px solid gray;
@@ -577,13 +577,13 @@ const listRadioGroup = [
   background: white;
 }
 
-.sceleton-info {
+.skeleton-info {
   display: flex;
   justify-content: center;
   margin: 20px 0 8px 0;
 }
 
-.sceleton-heder {
+.skeleton-heder {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -592,14 +592,14 @@ const listRadioGroup = [
   margin-bottom: 8px;
 }
 
-.sceleton-heder-image {
+.skeleton-heder-image {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-.sceleton-heder-image-info {
+.skeleton-heder-image-info {
   display: flex;
   align-items: baseline;
   width: 500px;
@@ -607,18 +607,18 @@ const listRadioGroup = [
   margin-top: 10px;
 }
 
-.sceleton-heder-image-info-author {
+.skeleton-heder-image-info-author {
   display: flex;
   margin: 20px 0px 30px 0px;
   gap: 8px;
 }
 
-.sceleton-heder-image-info-like {
+.skeleton-heder-image-info-like {
   display: flex;
   justify-content: end;
 }
 
-.sceleton-body {
+.skeleton-body {
   display: flex;
   margin-top: 10px;
   justify-content: center;
