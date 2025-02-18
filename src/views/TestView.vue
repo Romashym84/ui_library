@@ -19,6 +19,8 @@ import UiToggleButtonGroup from '@/components/ui/UiToggleButtonGroup.vue'
 import UiSwitchButton from '@/components/ui/UiSwitchButton.vue'
 import UiProgress from '@/components/ui/UiProgress.vue'
 import UiRate from '@/components/ui/UiRate.vue'
+import UiSkeletonItem from '@/components/ui/UiSkeletonItem.vue'
+import UiSkeletonLoader from '@/components/ui/UiSkeletonLoader.vue'
 
 defineProps({
   size: {
@@ -48,6 +50,7 @@ const selectedswitch1 = ref(true)
 const selectedswitch2 = ref(true)
 const selectedswitch3 = ref(true)
 const uiRate = ref('1')
+const TeslaImage = new URL('@/assets/Tesla.png', import.meta.url).href
 
 setTimeout(() => {
   isLoading.value = false
@@ -97,6 +100,89 @@ const listRadioGroup = [
     value: 'D',
     label: 'Button D',
     disabled: true,
+  },
+]
+
+const layout = [
+  {
+    margin:'30px 0px 0px 238px',
+    width: '70px',
+    height: '16px',
+    borderRadius: '2px',
+  },
+  {
+    marginLeft:'35px',
+    marginTop:'13px',
+    width: '480px',
+    height: '33px',
+  },
+  {
+    marginLeft:'25px',
+    marginTop:'10px',
+    width: '500px',
+    height: '33px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'180px',
+    width: '180px',
+    height: '33px',
+  },
+  {
+    marginTop:'20px',
+    width: '550px',
+    height: '370px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'25px',
+    marginLeft:'25px',
+    inlineBlock:'true',
+    width: '40px',
+    height: '40px',
+    borderRadius: '50%',
+  },
+  {
+    marginLeft:'15px',
+    inlineBlock:'true',
+    width: '150px',
+    height: '40px',
+    borderRadius: '2px',
+  },
+  {
+    marginLeft:'255px',
+    inlineBlock:'true',
+    width: '40px',
+    height: '20px',
+    borderRadius: '5px',
+  },
+  {
+    marginTop:'55px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '180px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '240px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '220px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '280px',
+    borderRadius: '2px',
   },
 ]
 </script>
@@ -483,9 +569,62 @@ const listRadioGroup = [
   <br />
   <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.SMALL"></UiRate>
   <br />
-  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.DEFAULT" active-color="red" half-mode></UiRate>
+  <UiRate
+    v-model="uiRate"
+    :readonly="false"
+    :count="5"
+    :size="UI_SIZE.DEFAULT"
+    active-color="red"
+    half-mode
+  ></UiRate>
   <br />
-  <UiRate v-model="uiRate" :readonly="false" :count="5" :size="UI_SIZE.LARGE" style-red text-mode></UiRate>
+  <UiRate
+    v-model="uiRate"
+    :readonly="false"
+    :count="5"
+    :size="UI_SIZE.LARGE"
+    style-red
+    text-mode
+  ></UiRate>
+  <div class="skeleton">
+    <div class="skeleton-info">
+      <UiSkeletonItem width="70px" height="20px" border-radius="2px"></UiSkeletonItem>
+    </div>
+    <div class="skeleton-heder">
+      <UiSkeletonItem width="500px" height="70px"></UiSkeletonItem>
+      <UiSkeletonItem width="180px" height="35px"></UiSkeletonItem>
+    </div>
+    <div class="skeleton-heder-image">
+      <UiSkeletonItem width="550px" height="350px" border-radius="2px"></UiSkeletonItem>
+      <div class="skeleton-heder-image-info">
+        <div class="skeleton-heder-image-info-author">
+          <UiSkeletonItem width="40px" height="40px" border-radius="50%"></UiSkeletonItem>
+          <UiSkeletonItem width="150px" height="40px" border-radius="2px"></UiSkeletonItem>
+        </div>
+        <div class="skeleton-heder-image-info-like">
+          <UiSkeletonItem width="40px" height="20px" border-radius="8px"></UiSkeletonItem>
+        </div>
+      </div>
+    </div>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="180px" border-radius="2px"></UiSkeletonItem>
+    </div>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="240px" border-radius="2px"></UiSkeletonItem>
+    </div>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="220px" border-radius="2px"></UiSkeletonItem>
+    </div>
+    <div class="skeleton-body">
+      <UiSkeletonItem width="500px" height="280px" border-radius="2px"></UiSkeletonItem>
+    </div>
+  </div>
+  <div class="skelet">
+    <UiSkeletonLoader :layout="layout" loading>
+      <img :src="TeslaImage" alt="Tesla" :style="{ maxWidth: '550px' }" />
+      <!-- <a href="https://mezha.media/2025/02/13/tesla-armored-cybertruck-usa-deal/"></a> -->
+    </UiSkeletonLoader>
+  </div>
 </template>
 
 <!-- <template>
@@ -497,6 +636,12 @@ const listRadioGroup = [
 </template> -->
 
 <style scoped>
+.skelet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -516,5 +661,63 @@ const listRadioGroup = [
   margin-top: 20px;
   display: flex;
   gap: 0;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 14px;
+  gap: 8px;
+  max-width: fit-content;
+  margin: auto;
+  background: white;
+}
+
+.skeleton-info {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 8px 0;
+}
+
+.skeleton-heder {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 8px;
+}
+
+.skeleton-heder-image {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skeleton-heder-image-info {
+  display: flex;
+  align-items: baseline;
+  width: 500px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.skeleton-heder-image-info-author {
+  display: flex;
+  margin: 20px 0px 30px 0px;
+  gap: 8px;
+}
+
+.skeleton-heder-image-info-like {
+  display: flex;
+  justify-content: end;
+}
+
+.skeleton-body {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
 }
 </style>
