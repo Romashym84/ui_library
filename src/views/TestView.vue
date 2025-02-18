@@ -20,6 +20,7 @@ import UiSwitchButton from '@/components/ui/UiSwitchButton.vue'
 import UiProgress from '@/components/ui/UiProgress.vue'
 import UiRate from '@/components/ui/UiRate.vue'
 import UiSkeletonItem from '@/components/ui/UiSkeletonItem.vue'
+import UiSkeletonLoader from '@/components/ui/UiSkeletonLoader.vue'
 
 defineProps({
   size: {
@@ -49,6 +50,7 @@ const selectedswitch1 = ref(true)
 const selectedswitch2 = ref(true)
 const selectedswitch3 = ref(true)
 const uiRate = ref('1')
+const TeslaImage = new URL('@/assets/Tesla.png', import.meta.url).href
 
 setTimeout(() => {
   isLoading.value = false
@@ -98,6 +100,89 @@ const listRadioGroup = [
     value: 'D',
     label: 'Button D',
     disabled: true,
+  },
+]
+
+const layout = [
+  {
+    margin:'30px 0px 0px 238px',
+    width: '70px',
+    height: '16px',
+    borderRadius: '2px',
+  },
+  {
+    marginLeft:'35px',
+    marginTop:'13px',
+    width: '480px',
+    height: '33px',
+  },
+  {
+    marginLeft:'25px',
+    marginTop:'10px',
+    width: '500px',
+    height: '33px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'180px',
+    width: '180px',
+    height: '33px',
+  },
+  {
+    marginTop:'20px',
+    width: '550px',
+    height: '370px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'25px',
+    marginLeft:'25px',
+    inlineBlock:'true',
+    width: '40px',
+    height: '40px',
+    borderRadius: '50%',
+  },
+  {
+    marginLeft:'15px',
+    inlineBlock:'true',
+    width: '150px',
+    height: '40px',
+    borderRadius: '2px',
+  },
+  {
+    marginLeft:'255px',
+    inlineBlock:'true',
+    width: '40px',
+    height: '20px',
+    borderRadius: '5px',
+  },
+  {
+    marginTop:'55px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '180px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '240px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '220px',
+    borderRadius: '2px',
+  },
+  {
+    marginTop:'10px',
+    marginLeft:'25px',
+    width: '500px',
+    height: '280px',
+    borderRadius: '2px',
   },
 ]
 </script>
@@ -534,6 +619,12 @@ const listRadioGroup = [
       <UiSkeletonItem width="500px" height="280px" border-radius="2px"></UiSkeletonItem>
     </div>
   </div>
+  <div class="skelet">
+    <UiSkeletonLoader :layout="layout" loading>
+      <img :src="TeslaImage" alt="Tesla" :style="{ maxWidth: '550px' }" />
+      <!-- <a href="https://mezha.media/2025/02/13/tesla-armored-cybertruck-usa-deal/"></a> -->
+    </UiSkeletonLoader>
+  </div>
 </template>
 
 <!-- <template>
@@ -545,6 +636,12 @@ const listRadioGroup = [
 </template> -->
 
 <style scoped>
+.skelet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .buttons {
   display: flex;
   flex-wrap: wrap;
