@@ -90,6 +90,7 @@ body {
   --color-orange:#f4a261;
   --color-blue: blue;
   --color-blue-light: #007bff;
+  --color-blue-extra-light:#51b5ff;
   --color-blue-dark:#403e57;
   --color-black: black;
   --color-green: #4caf50;
@@ -100,6 +101,7 @@ body {
   --color-white-light-gray: #f0f0f0;
   --color-gray: gray;
   --color-gray-light:#909399;
+  --color-gray-extra-light:#cecece;
 
   --color-primary: var(--color-blue-light);
   --color-success: var(--color-green);
