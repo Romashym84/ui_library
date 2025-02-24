@@ -655,6 +655,15 @@ const layout = [
     :buttonMods="true"
     :size="UI_SIZE.LARGE"
   />
+  <br />
+  <UiPagination
+    v-model="pagination"
+    :total="100"
+    :page-size="3"
+    :pager-count="5"
+    :buttonMods="true"
+    :size="UI_SIZE.LARGE"
+  />
 </template>
 
 <style scoped>

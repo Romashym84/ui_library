@@ -21,6 +21,10 @@ const props = defineProps({
     type: Number,
     default: 5,
   },
+  pageSize: {
+    type: Number,
+    default: 1,
+  },
 })
 
 const model = defineModel({ type: Number, default: 1 })
@@ -30,8 +34,13 @@ const iconEllipses = '…'
 const iconDblLeft = '«'
 const iconDblRight = '»'
 
+const totalPage = computed(() => {
+  return Math.ceil(props.total / props.pageSize)
+})
+
 const paginationItems = computed(() => {
-  const { total, pagerCount } = props
+  const { pagerCount } = props
+  const total = totalPage.value
   const items = []
 
   if (total <= pagerCount) {
@@ -71,7 +80,7 @@ const selectItems = (item, isLeft) => {
 
 const changeItems = (direction) => {
   const newItem = model.value + direction
-  if (newItem >= 1 && newItem <= props.total) {
+  if (newItem >= 1 && newItem <= totalPage.value) {
     model.value = newItem
   }
 }
