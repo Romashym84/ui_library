@@ -190,23 +190,23 @@ const changeItems = (direction) => {
     display: none;
   }
 
+  &__item:hover & {
+    &__ellipses {
+      display: none;
+    }
+
+    &__dblleft,
+    &__dblright {
+      display: flex;
+      justify-content: center;
+      width: calc(var(--ui-size) / 2);
+      padding-bottom: 0.1em;
+    }
+  }
+
   &__item {
     &:hover {
-      & {
-        color: var(--color-blue-extra-light);
-      }
-
-      & .ui-pagination__ellipses {
-        display: none;
-      }
-
-      & .ui-pagination__dblleft,
-      & .ui-pagination__dblright {
-        display: flex;
-        justify-content: center;
-        width: calc(var(--ui-size) / 2);
-        padding-bottom: 0.1em;
-      }
+      color: var(--color-blue-extra-light);
     }
 
     &--active {
