@@ -21,6 +21,7 @@ import UiProgress from '@/components/ui/UiProgress.vue'
 import UiRate from '@/components/ui/UiRate.vue'
 import UiSkeletonItem from '@/components/ui/UiSkeletonItem.vue'
 import UiSkeletonLoader from '@/components/ui/UiSkeletonLoader.vue'
+import UiPagination from '@/components/ui/UiPagination.vue'
 
 defineProps({
   size: {
@@ -50,7 +51,8 @@ const selectedswitch1 = ref(true)
 const selectedswitch2 = ref(true)
 const selectedswitch3 = ref(true)
 const uiRate = ref('1')
-const TeslaImage = new URL('@/assets/Tesla.png', import.meta.url).href
+const teslaImage = new URL('@/assets/Tesla.png', import.meta.url).href
+const pagination = ref(1)
 
 setTimeout(() => {
   isLoading.value = false
@@ -105,81 +107,81 @@ const listRadioGroup = [
 
 const layout = [
   {
-    margin:'30px 0px 0px 238px',
+    margin: '30px 0px 0px 238px',
     width: '70px',
     height: '16px',
     borderRadius: '2px',
   },
   {
-    marginLeft:'35px',
-    marginTop:'13px',
+    marginLeft: '35px',
+    marginTop: '13px',
     width: '480px',
     height: '33px',
   },
   {
-    marginLeft:'25px',
-    marginTop:'10px',
+    marginLeft: '25px',
+    marginTop: '10px',
     width: '500px',
     height: '33px',
   },
   {
-    marginTop:'10px',
-    marginLeft:'180px',
+    marginTop: '10px',
+    marginLeft: '180px',
     width: '180px',
     height: '33px',
   },
   {
-    marginTop:'20px',
+    marginTop: '20px',
     width: '550px',
     height: '370px',
     borderRadius: '2px',
   },
   {
-    marginTop:'25px',
-    marginLeft:'25px',
-    inlineBlock:'true',
+    marginTop: '25px',
+    marginLeft: '25px',
+    inlineBlock: true,
     width: '40px',
     height: '40px',
     borderRadius: '50%',
   },
   {
-    marginLeft:'15px',
-    inlineBlock:'true',
+    marginLeft: '15px',
+    inlineBlock: true,
     width: '150px',
     height: '40px',
     borderRadius: '2px',
   },
   {
-    marginLeft:'255px',
-    inlineBlock:'true',
+    marginLeft: '255px',
+    inlineBlock: true,
     width: '40px',
     height: '20px',
     borderRadius: '5px',
   },
   {
-    marginTop:'55px',
-    marginLeft:'25px',
+    marginTop: '55px',
+    marginLeft: '25px',
     width: '500px',
     height: '180px',
     borderRadius: '2px',
   },
   {
-    marginTop:'10px',
-    marginLeft:'25px',
+    marginTop: '10px',
+    marginLeft: '25px',
     width: '500px',
     height: '240px',
     borderRadius: '2px',
   },
   {
-    marginTop:'10px',
-    marginLeft:'25px',
+    marginTop: '10px',
+    marginLeft: '25px',
     width: '500px',
     height: '220px',
     borderRadius: '2px',
   },
   {
-    marginTop:'10px',
-    marginLeft:'25px',
+    marginTop: '10px',
+    marginLeft: '25px',
     width: '500px',
     height: '280px',
     borderRadius: '2px',
@@ -621,19 +623,39 @@ const layout = [
   </div>
   <div class="skelet">
     <UiSkeletonLoader :layout="layout" loading>
-      <img :src="TeslaImage" alt="Tesla" :style="{ maxWidth: '550px' }" />
+      <img :src="teslaImage" alt="Tesla" :style="{ maxWidth: '550px' }" />
       <!-- <a href="https://mezha.media/2025/02/13/tesla-armored-cybertruck-usa-deal/"></a> -->
     </UiSkeletonLoader>
   </div>
-</template>
 
-<!-- <template>
-  <UiDropDownIcon v-slot="{ icons }">
-    {{ icons }}
-    <UiDropDown :list="list" v-model="selected" placeholder="Введіть ім'я!" :size="UI_SIZE.DEFAULT">
-    </UiDropDown>
-  </UiDropDownIcon>
-</template> -->
+  <UiPagination :size="UI_SIZE.SMALL"></UiPagination>
+  <UiPagination :size="UI_SIZE.DEFAULT"></UiPagination>
+  <UiPagination :size="UI_SIZE.LARGE"></UiPagination>
+  <br />
+  <UiPagination
+    v-model="pagination"
+    :total="50"
+    :pager-count="5"
+    :buttonMods="true"
+    :size="UI_SIZE.SMALL"
+  />
+  <br />
+  <UiPagination
+    v-model="pagination"
+    :total="50"
+    :pager-count="5"
+    :buttonMods="true"
+    :size="UI_SIZE.DEFAULT"
+  />
+  <br />
+  <UiPagination
+    v-model="pagination"
+    :total="50"
+    :pager-count="5"
+    :buttonMods="true"
+    :size="UI_SIZE.LARGE"
+  />
+</template>
 
 <style scoped>
 .skelet {
