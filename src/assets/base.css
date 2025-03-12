@@ -111,7 +111,7 @@ body {
 
   --main-bg-color: brown;
   --button-bg-color: var(--main-bg-color);
-  --ui-size-default: 50px;
-  --ui-size-small: 30px;
-  --ui-size-large: 70px;
+  --ui-size-default: 32px;
+  --ui-size-small: 24px;
+  --ui-size-large: 40px;
 }

@@ -22,6 +22,7 @@ import UiRate from '@/components/ui/UiRate.vue'
 import UiSkeletonItem from '@/components/ui/UiSkeletonItem.vue'
 import UiSkeletonLoader from '@/components/ui/UiSkeletonLoader.vue'
 import UiPagination from '@/components/ui/UiPagination.vue'
+import UiInput from '@/components/ui/UiInput.vue'
 
 defineProps({
   size: {
@@ -53,6 +54,11 @@ const selectedswitch3 = ref(true)
 const uiRate = ref('1')
 const teslaImage = new URL('@/assets/Tesla.png', import.meta.url).href
 const pagination = ref(1)
+const input1 = ref()
+const input2 = ref()
+const input3 = ref()
+const input4 = ref()
+const input5 = ref()
 
 setTimeout(() => {
   isLoading.value = false
@@ -664,6 +670,21 @@ const layout = [
     :buttonMods="true"
     :size="UI_SIZE.LARGE"
   />
+  <br />
+  <UiInput v-model="input1"></UiInput>
+  <br />
+  <UiInput v-model="input2" type="password" :size="UI_SIZE.SMALL"></UiInput>
+  <br />
+  <UiInput v-model="input3" clearable :size="UI_SIZE.DEFAULT"></UiInput>
+  <br />
+  <UiInput v-model="input4" disabled placeholder="Hello, I'm blocked" :size="UI_SIZE.DEFAULT"></UiInput>
+  <br />
+  <UiInput
+    v-model="input5"
+    type="password"
+    :show-password-props="true"
+    :size="UI_SIZE.LARGE"
+  ></UiInput>
 </template>
 
 <style scoped>
