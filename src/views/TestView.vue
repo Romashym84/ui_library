@@ -697,56 +697,59 @@ const layout = [
     :size="UI_SIZE.LARGE"
   ></UiInput>
   <br />
-  <UiInputNumber
-    v-model="inputNumber1"
-    placeholder="Введіть значення"
-    :min="1"
-    :max="10"
-    :step="1"
-    :controls="true"
-    :size="UI_SIZE.SMALL"
-  ></UiInputNumber>
-  <br />
-  <UiInputNumber
-    v-model="inputNumber2"
-    placeholder="Введіть значення"
-    :min="1"
-    :max="10"
-    :step="1"
-    :controls="true"
-    :size="UI_SIZE.DEFAULT"
-  ></UiInputNumber>
-  <br />
-  <UiInputNumber
-    v-model="inputNumber3"
-    placeholder="Введіть значення"
-    :min="0"
-    :max="20"
-    :step="2"
-    :controls="true"
-    :size="UI_SIZE.LARGE"
-  ></UiInputNumber>
-  <br />
-  <UiInputNumber
-    v-model="inputNumber4"
-    placeholder="Введіть значення"
-    :min="1"
-    :max="10"
-    :step="1"
-    :controls="false"
-    :size="UI_SIZE.DEFAULT"
-  ></UiInputNumber>
-  <br />
-  <UiInputNumber
-    v-model="inputNumber5"
-    placeholder="Введіть значення"
-    disabled
-    :min="1"
-    :max="10"
-    :step="1"
-    :controls="true"
-    :size="UI_SIZE.LARGE"
-  ></UiInputNumber>
+
+  <div class="inputNumber">
+    <UiInputNumber
+      v-model="inputNumber1"
+      placeholder="Введіть значення"
+      :min="1"
+      :max="10"
+      :step="1"
+      :controls="true"
+      :size="UI_SIZE.SMALL"
+    ></UiInputNumber>
+
+    <UiInputNumber
+      v-model="inputNumber2"
+      placeholder="Введіть значення"
+      :min="1"
+      :max="10"
+      :step="1"
+      :controls="true"
+      :size="UI_SIZE.DEFAULT"
+    ></UiInputNumber>
+
+    <UiInputNumber
+      v-model="inputNumber3"
+      placeholder="Введіть значення"
+      :min="0"
+      :max="20"
+      :step="2"
+      :controls="true"
+      :size="UI_SIZE.LARGE"
+    ></UiInputNumber>
+
+    <UiInputNumber
+      v-model="inputNumber4"
+      placeholder="Введіть значення"
+      :min="1"
+      :max="10"
+      :step="1"
+      :controls="false"
+      :size="UI_SIZE.DEFAULT"
+    ></UiInputNumber>
+
+    <UiInputNumber
+      v-model="inputNumber5"
+      placeholder="Введіть значення"
+      disabled
+      :min="1"
+      :max="10"
+      :step="1"
+      :controls="true"
+      :size="UI_SIZE.LARGE"
+    ></UiInputNumber>
+  </div>
 </template>
 
 <style scoped>
@@ -833,5 +836,12 @@ const layout = [
   display: flex;
   margin-top: 10px;
   justify-content: center;
+}
+
+.inputNumber {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
 }
 </style>

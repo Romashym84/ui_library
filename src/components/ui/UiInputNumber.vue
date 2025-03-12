@@ -122,7 +122,8 @@ const minusValue = () => {
 
   :deep(input) {
     text-align: center;
-    
+    border: none;
+
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
       -webkit-appearance: none;
@@ -145,7 +146,7 @@ const minusValue = () => {
     --ui-size: var(--ui-size-large);
   }
 
-  &:focus-within {
+  &:hover {
     border-color: var(--color-blue-light);
   }
 
@@ -160,18 +161,17 @@ const minusValue = () => {
     width: var(--ui-size);
 
     &:disabled {
-      opacity: 0.3;
+      opacity: 0.5;
       cursor: not-allowed;
     }
 
     &:hover {
-      background-color: #f0f0f0;
+      color: var(--color-blue-light);
     }
   }
 
   &__input {
     text-align: center;
-    // border: none;
     outline: none;
     font-size: calc(var(--ui-size) / 2);
 

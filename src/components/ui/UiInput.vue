@@ -46,6 +46,10 @@ const togglePassword = () => {
 const clearInput = () => {
   model.value = ''
 }
+
+const showIcon=computed(()=>{
+ return props.clearable || (props.type==='password' && model.value)
+})
 </script>
 <template>
   <div
@@ -58,7 +62,10 @@ const clearInput = () => {
       v-bind="$attrs"
       v-model="model"
       class="ui-input__field"
-      :class="{ [`ui-input__field--disabled`]: disabled }"
+      :class="{
+        [`ui-input__field--disabled`]: disabled,
+        [`ui-input__field--no-icon`]: !showIcon,
+      }"
       :type="inputType"
       :disabled="disabled"
     />
@@ -121,6 +128,11 @@ const clearInput = () => {
     &--disabled {
       cursor: not-allowed;
       opacity: 0.5;
+    }
+
+    &--no-icon {
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
