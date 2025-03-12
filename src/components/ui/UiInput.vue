@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { UI_SIZE } from './ui-types'
 
 const props = defineProps({
@@ -26,10 +26,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  placeholder:{
-    type:String,
-    default:"Please input",
-  }
 })
 
 const showPassword = defineModel('showPasswordProps', { type: Boolean })
@@ -65,7 +61,6 @@ const clearInput = () => {
       :class="{ [`ui-input__field--disabled`]: disabled }"
       :type="inputType"
       :disabled="disabled"
-      :placeholder="placeholder"
     />
     <button
       v-if="clearable && model"

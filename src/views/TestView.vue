@@ -23,6 +23,7 @@ import UiSkeletonItem from '@/components/ui/UiSkeletonItem.vue'
 import UiSkeletonLoader from '@/components/ui/UiSkeletonLoader.vue'
 import UiPagination from '@/components/ui/UiPagination.vue'
 import UiInput from '@/components/ui/UiInput.vue'
+import UiInputNumber from '@/components/ui/UiInputNumber.vue'
 
 defineProps({
   size: {
@@ -59,6 +60,11 @@ const input2 = ref()
 const input3 = ref()
 const input4 = ref()
 const input5 = ref()
+const inputNumber1 = ref(1)
+const inputNumber2 = ref(1)
+const inputNumber3 = ref(1)
+const inputNumber4 = ref(1)
+const inputNumber5 = ref(1)
 
 setTimeout(() => {
   isLoading.value = false
@@ -677,7 +683,12 @@ const layout = [
   <br />
   <UiInput v-model="input3" clearable :size="UI_SIZE.DEFAULT"></UiInput>
   <br />
-  <UiInput v-model="input4" disabled placeholder="Hello, I'm blocked" :size="UI_SIZE.DEFAULT"></UiInput>
+  <UiInput
+    v-model="input4"
+    disabled
+    placeholder="Hello, I'm blocked"
+    :size="UI_SIZE.DEFAULT"
+  ></UiInput>
   <br />
   <UiInput
     v-model="input5"
@@ -685,6 +696,57 @@ const layout = [
     :show-password-props="true"
     :size="UI_SIZE.LARGE"
   ></UiInput>
+  <br />
+  <UiInputNumber
+    v-model="inputNumber1"
+    placeholder="Введіть значення"
+    :min="1"
+    :max="10"
+    :step="1"
+    :controls="true"
+    :size="UI_SIZE.SMALL"
+  ></UiInputNumber>
+  <br />
+  <UiInputNumber
+    v-model="inputNumber2"
+    placeholder="Введіть значення"
+    :min="1"
+    :max="10"
+    :step="1"
+    :controls="true"
+    :size="UI_SIZE.DEFAULT"
+  ></UiInputNumber>
+  <br />
+  <UiInputNumber
+    v-model="inputNumber3"
+    placeholder="Введіть значення"
+    :min="0"
+    :max="20"
+    :step="2"
+    :controls="true"
+    :size="UI_SIZE.LARGE"
+  ></UiInputNumber>
+  <br />
+  <UiInputNumber
+    v-model="inputNumber4"
+    placeholder="Введіть значення"
+    :min="1"
+    :max="10"
+    :step="1"
+    :controls="false"
+    :size="UI_SIZE.DEFAULT"
+  ></UiInputNumber>
+  <br />
+  <UiInputNumber
+    v-model="inputNumber5"
+    placeholder="Введіть значення"
+    disabled
+    :min="1"
+    :max="10"
+    :step="1"
+    :controls="true"
+    :size="UI_SIZE.LARGE"
+  ></UiInputNumber>
 </template>
 
 <style scoped>
