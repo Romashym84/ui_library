@@ -1,7 +1,25 @@
-<script setup></script>
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  color: {
+    type: String,
+    default: 'var(--color-white)',
+  },
+  size: {
+    type: String,
+    default: '3px',
+  },
+})
+
+const spinnerStyle = computed(() => ({
+  color: props.color,
+  fontSize: props.size,
+}))
+</script>
 <template>
   <div class="ui-spinner">
-    <span class="ui-spinner__loader"></span>
+    <span class="ui-spinner__loader" :style="spinnerStyle"></span>
   </div>
 </template>
 
@@ -15,7 +33,6 @@
 }
 
 .ui-spinner__loader {
-  color:var(--color-white);
   font-size: 3px;
   width: 1em;
   height: 1em;

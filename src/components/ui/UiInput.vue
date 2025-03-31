@@ -47,8 +47,8 @@ const clearInput = () => {
   model.value = ''
 }
 
-const showIcon=computed(()=>{
- return props.clearable || (props.type==='password' && model.value)
+const showIcon = computed(() => {
+  return props.clearable || (props.type === 'password' && model.value)
 })
 </script>
 <template>
